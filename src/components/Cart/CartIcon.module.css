@@ -1,0 +1,23 @@
+.cart {
+  color: #fff;
+  margin-right: 20px;
+  font-size: 22px;
+  position: relative;
+}
+
+.cart__circle {
+  display: inline-block;
+  height: 17px;
+  width: 17px;
+  text-align: center;
+  background-color: #febd69;
+  color: #131921;
+  font-size: 13px;
+  border-radius: 50px;
+  z-index: 10;
+  margin-left: 5px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  font-weight: bold;
+}

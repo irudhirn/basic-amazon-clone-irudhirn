@@ -1,0 +1,24 @@
+.cart__total {
+  flex: 0.5;
+  background-color: #fff;
+  padding: 16px;
+  min-height: 100%;
+  border-left: 0.2px solid rgb(211, 209, 209);
+}
+
+.cart__total h2 {
+  margin-bottom: 10px;
+}
+
+.cart__total--quantity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.cart__total--amount {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
