@@ -1,8 +1,89 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 
 import Product from "./Product";
 
 import classes from "./Products.module.css";
+
+const Products = () => {
+  const [dummyProducts, setDummyProducts] = useState([]);
+  const [isFetching, setIsFetching] = useState(true);
+  const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    setIsFetching(true);
+    setIsError(false);
+
+    const fetchProducts = async () => {
+      const res = await fetch(
+        "https://clone-rudh-default-rtdb.firebaseio.com/products.json"
+      );
+
+      const data = await res.json();
+
+      let arr = [];
+
+      for (const key in data) {
+        if (key === 0 || key === "0") continue;
+        let prod = {
+          id: +key,
+          title: data[`${key}`].title,
+          img: data[`${key}`].img,
+          description: data[`${key}`].description,
+          price: data[`${key}`].price,
+        };
+        arr.push(prod);
+      }
+
+      setDummyProducts(arr);
+      setIsFetching(false);
+    };
+
+    setTimeout(() => {
+      if (!dummyProducts.length) {
+        setIsError(true);
+      }
+    }, 5000);
+
+    fetchProducts();
+  }, []);
+
+  return (
+    <div className={classes.products}>
+      {!dummyProducts.length && isFetching && !isError && (
+        <img
+          src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"
+          alt="spinner"
+          className={classes.spinner}
+        />
+      )}
+      {/* {DUMMY_PRODUCTS.map((item) => { */}
+      {dummyProducts.length !== 0 &&
+        dummyProducts.map((item) => {
+          const { id, title, img, description, price } = item;
+
+          return (
+            <Product
+              key={id}
+              id={id}
+              title={title}
+              img={img}
+              description={description}
+              price={price}
+            />
+          );
+        })}
+      {isError && (
+        <span className={classes.error}>Error. Something went wrong...</span>
+      )}
+    </div>
+  );
+};
+
+export default Products;
+
+/*
 
 const DUMMY_PRODUCTS = [
   {
@@ -42,7 +123,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: 6,
-    title: "Skechers",
+    title: "Sketchers",
     img: "https://images-eu.ssl-images-amazon.com/images/I/41uZzAHJJZL._AC_SR400,600_.jpg",
     description: "Women Go Run 400 Sneakers",
     price: 1242,
@@ -77,7 +158,7 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: 11,
-    title: "Panasoni LUMIX G7",
+    title: "Panasonic LUMIX G7",
     img: "https://m.media-amazon.com/images/I/91xnO7qHAeL._AC_UL320_.jpg",
     description: "16 MP, 4K Mirrorless Interchangeable",
     price: 40380,
@@ -91,25 +172,4 @@ const DUMMY_PRODUCTS = [
   },
 ];
 
-const Products = () => {
-  return (
-    <div className={classes.products}>
-      {DUMMY_PRODUCTS.map((item) => {
-        const { id, title, img, description, price } = item;
-
-        return (
-          <Product
-            key={id}
-            id={id}
-            title={title}
-            img={img}
-            description={description}
-            price={price}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
-export default Products;
+*/

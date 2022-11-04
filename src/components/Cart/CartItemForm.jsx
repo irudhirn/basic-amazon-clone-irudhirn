@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -30,17 +29,8 @@ const CartItemForm = ({ id, item }) => {
     setIsFirstload(() => false);
   }, [quantity]);
 
-  // const quantityRef = useRef();
-
   const submitHandler = (e) => {
     e.preventDefault();
-
-    // const enteredQuantity = quantityRef.current.value;
-    // const enteredQuantityNumber = +enteredQuantity;
-    // setQuantity(() => enteredQuantityNumber);
-
-    // cartCtx.increaseItem({ ...item, quantity: enteredQuantityNumber });
-    // cartCtx.increaseItem({ ...item, quantity: quantity });
   };
 
   const increaseHandler = () => {
@@ -87,20 +77,3 @@ export default CartItemForm;
 <button type="button">
     <FontAwesomeIcon icon={faMinus} />
   </button> */
-
-/*
-  
-  <input
-        ref={quantityRef}
-        // value={quantity}
-        defaultValue={quantity}
-        type="number"
-        min={1}
-        max={10}
-        step={1}
-        onBlur={retainState}
-        // onChange={(e) => setQuantity(() => e.target.value)}
-        className={classes.input}
-      />
-  
-  */

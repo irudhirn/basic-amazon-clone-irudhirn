@@ -172,63 +172,26 @@ export default CartProvider;
 
 /*
 
-  if (action.type === "INCREASE") {
-    const existingItemIndex = state.items.findIndex(
-      (item) => item.title === action.payload.title
-    );
-
-    const existingItem = state.items[existingItemIndex];
-
-    const updatedItem = {
-      ...existingItem,
-      quantity: action.payload.quantity,
-    };
-
-    let updatedItems = [...state.items];
-    updatedItems[existingItemIndex] = updatedItem;
-
-    const updatedAmount =
-      state.totalAmount -
-      updatedItems[existingItemIndex].quantity *
-        updatedItems[existingItemIndex].price +
-      action.payload.quantity * action.payload.price;
-    const updatedQuantity =
-      state.totalQuantity -
-      updatedItems[existingItemIndex].quantity +
-      action.payload.quantity;
-
-    return {
-      ...state,
-      items: updatedItems,
-      totalQuantity: updatedQuantity,
-      totalAmount: updatedAmount,
-    };
-  }
-
-*/
-
-/*
-
-    {
-      id: 1,
-      title: "boAt Airdopes",
-      img: "https://m.media-amazon.com/images/I/51EAQs9-rvL._AC_SY195_.jpg",
-      description: "True Wireless Earbuds",
-      price: 1799,
-    },
-    {
-      id: 2,
-      title: "Google Pixel 6",
-      img: "https://m.media-amazon.com/images/I/71adnun6E8L._AC_UY218_.jpg",
-      description: "8GB RAM, 128G Storage",
-      price: 56700,
-    },
-    {
-      id: 3,
-      title: "2020 Apple iPad Air",
-      img: "https://m.media-amazon.com/images/I/71LJWOMyP4L._SX522_.jpg",
-      description: "A14 Bionic Chip(4th generation)",
-      price: 56900,
-    },
+{
+  id: 1,
+  title: "boAt Airdopes",
+  img: "https://m.media-amazon.com/images/I/51EAQs9-rvL._AC_SY195_.jpg",
+  description: "True Wireless Earbuds",
+  price: 1799,
+},
+{
+  id: 2,
+  title: "Google Pixel 6",
+  img: "https://m.media-amazon.com/images/I/71adnun6E8L._AC_UY218_.jpg",
+  description: "8GB RAM, 128G Storage",
+  price: 56700,
+},
+{
+  id: 3,
+  title: "2020 Apple iPad Air",
+  img: "https://m.media-amazon.com/images/I/71LJWOMyP4L._SX522_.jpg",
+  description: "A14 Bionic Chip(4th generation)",
+  price: 56900,
+},
 
 */

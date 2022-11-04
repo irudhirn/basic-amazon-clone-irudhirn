@@ -2,4 +2,23 @@
   display: flex;
   flex-wrap: wrap;
   background-color: rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
+}
+
+.error {
+  font-size: 26px;
+  font-weight: bold;
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+  transform: translate(-50%, -50%);
 }
