@@ -14,7 +14,7 @@ const CartTotal = () => {
         Total Cart Items: <h3>{cartCtx.totalQuantity}</h3>
       </div>
       <div className={classes["cart__total--amount"]}>
-        Total Amount: <h3>₹{cartCtx.totalAmount}</h3>
+        Total Amount: <h3>₹{cartCtx.totalAmount.toLocaleString("en-IN")}</h3>
       </div>
     </div>
   );

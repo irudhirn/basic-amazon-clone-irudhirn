@@ -23,7 +23,7 @@ const Product = ({ id, title, img, description, price }) => {
       </div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <h4>₹ {price}</h4>
+      <h4>₹ {price.toLocaleString("en-IN")}</h4>
       <button onClick={() => cartCtx.addItem(item)}>Add To Cart</button>
     </div>
   );

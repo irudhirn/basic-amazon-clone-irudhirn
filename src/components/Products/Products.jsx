@@ -9,11 +9,9 @@ import classes from "./Products.module.css";
 const Products = () => {
   const [dummyProducts, setDummyProducts] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
-  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     setIsFetching(true);
-    setIsError(false);
 
     const fetchProducts = async () => {
       const res = await fetch(
@@ -38,20 +36,15 @@ const Products = () => {
 
       setDummyProducts(arr);
       setIsFetching(false);
+      console.log(arr);
     };
-
-    setTimeout(() => {
-      if (!dummyProducts.length) {
-        setIsError(true);
-      }
-    }, 5000);
 
     fetchProducts();
   }, []);
 
   return (
     <div className={classes.products}>
-      {!dummyProducts.length && isFetching && !isError && (
+      {!dummyProducts.length && isFetching && (
         <img
           src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"
           alt="spinner"
@@ -74,9 +67,6 @@ const Products = () => {
             />
           );
         })}
-      {isError && (
-        <span className={classes.error}>Error. Something went wrong...</span>
-      )}
     </div>
   );
 };
